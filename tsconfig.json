@@ -3,6 +3,23 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "NgAvatar": [
+        "./dist/ng-avatar"
+      ],
+      "NgButton": [
+        "./dist/ng-button"
+      ],
+      "NgCheckBox": [
+        "./dist/ng-check-box"
+      ],
+      "NgTextField": [
+        "./dist/ng-text-field"
+      ],
+      "ngChart": [
+        "./dist/ng-chart"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

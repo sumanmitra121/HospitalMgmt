@@ -1,0 +1,42 @@
+    <!-- <ul nz-menu nzTheme="light" nzMode="inline">
+      @for(item of navMenu;track item.id){
+        @if(item.subMenu.length > 0){
+              <li nz-submenu [nzTitle]="item.menuName" [nzIcon]="item.icon" [nzOpen]="item.id == 2">
+                <ul>
+                  @for(subItems of item.subMenu;track subItems.id){
+                    <li nz-menu-item >{{subItems.menuName}}</li>
+                   }
+                </ul>
+              </li>
+          }@else{
+              <li nz-menu-item >
+                  <span title><span nz-icon nzType="{{item.icon}}"></span><span>{{item.menuName}}</span></span>    
+              </li>
+          }
+      }
+    </ul> -->
+
+
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li class="my-3 text-center">
+            <img src="logo.png" class="h-16 mx-auto"/> 
+      </li>
+        @for(item of navMenu;track item.id){
+          @if(item.subMenu.length > 0){
+                <li nz-menu-group >
+                    <span title class="text-xs">{{item.menuName}}</span> 
+                  <ul>
+                    @for(subItems of item.subMenu;track subItems.id){
+                      <li nz-menu-item [nzSelected]="item.id == 1 && subItems.id==1">
+                        <span title class="text-xs"><span nz-icon nzType="{{subItems.icon}}"></span><span class=" font-medium"> {{subItems.menuName}}</span></span> 
+                       </li>
+                     }
+                  </ul>
+                </li>
+            }@else{
+                <li nz-menu-item >
+                    <span title><span nz-icon nzType="{{item.icon}}"></span><span >{{item.menuName}}</span></span>    
+                </li>
+            }
+        }
+      </ul>

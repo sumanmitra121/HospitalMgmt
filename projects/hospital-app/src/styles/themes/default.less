@@ -1,0 +1,100 @@
+@import (multiple) '../../../../../node_modules/ng-zorro-antd/src/style/themes/default';
+@import './base';
+// @layout-trigger-background: @white;
+// @layout-header-background: @white;
+@primary-color: #21aea8;
+@layout-sider-background: @white;
+@body-background:#f3f4f6;
+// @component-background: #21aea8;
+@label-color:#1d1d1df5;
+
+@font-face {
+    font-family: 'Bold';
+    src: url("../../../public/fonts/Nunito-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Medium';
+    src: url("../../../public/fonts/Nunito-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Regular';
+    src: url("../../../public/fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+.headerLayout{
+    
+    // background: @white!important;
+    // min-height: 96px!important;
+    background: #ffffffe0 !important;
+    -webkit-backdrop-filter: saturate(200%) blur(6px);
+    backdrop-filter: saturate(200%) blur(6px);
+   
+}
+.childLayout::before{
+    content: "";
+    width: 100%;
+    height: 4.75rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: saturate(200%) blur(10px);
+    background: linear-gradient(180deg, #f5f5f9b3 44%, #f5f5f96e 73%, #f5f5f900);
+    -webkit-mask: linear-gradient(#f5f5f9, #f5f5f9 18%, transparent 100%);
+    mask: linear-gradient(#f5f5f9, #f5f5f9 18%, transparent 100%);
+}
+.ant-drawer-title,
+.ant-divider-horizontal.ant-divider-with-text
+{
+    color:black !important;
+}
+.antDProgressBarSugery{
+    &.ant-progress-line{
+        & div{
+            &.ant-progress-outer{
+                &.ant-progress-inner{
+                    background-color:gray!important
+                }
+            }
+        }
+        }
+       
+}
+
+.ant-picker-header-view button{
+    color:rgb(38 38 38) !important
+}
+.ant-alert-message{
+    font-size: 12px;
+    border-radius: 50px;
+}
+.ant-alert-warning>.ant-alert-content>.ant-alert-message{
+    color: #d7a272!important;
+}
+.ant-alert-success>.ant-alert-content>.ant-alert-message{
+    color: #95cdd0!important;
+}
+.ant-alert-success{
+    background-color: #e5f3f3!important;
+    border-radius: 50px!important;
+    border:1px solid transparent
+}
+
+.ant-alert-warning{
+    background-color: #f6eadf!important;
+    border-radius: 50px!important;
+    border:1px solid transparent
+}
+.ant-alert-content{
+    flex:none!important;
+}
+.ant-alert{
+    justify-content: center!important;
+}
+.ant-table-thead > tr > th{
+    color:#404040!important
+}
+.ant-table-thead > tr > th{
+    background-color: transparent!important;
+}

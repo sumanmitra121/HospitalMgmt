@@ -1,0 +1,71 @@
+<div class="min-h-screen  p-3 md:p-10 min-w-screen flex items-center justify-center bg-cover" 
+[ngStyle]="{
+        'background-image': (theme.currentTheme == 'dark' ? 'linear-gradient(84deg, rgb(0 0 0 / 78%), rgb(0 0 0 / 0%)),' : 'linear-gradient(271deg, rgb(115 217 226 / 65%), rgb(255 255 255 / 57%)),') + 'url(authRightContainerImg.png)' 
+}"
+>
+        <div nz-row class=" bg-white rounded-md overflow-hidden shadow-md">
+                <div 
+                nz-col 
+                [nzXs]="{span:0}"
+                [nzLg]="{span:13}"
+                [nzMd]="{span:12}"
+                [nzSm]="{span:0}"
+                >
+                <div  class="bg-gradient-to-t sm:p-5 md:p-5 lg:p-20 space-y-6 from-teal-300 to-teal-600
+                 flex items-start justify-center min-h-full flex-col min-w-screen bg-cover bg-no-repeat"
+                 style="background-image: linear-gradient(308deg, rgb(115 217 226 / 65%), rgb(0 119 164)), url(footerAuth.png);"
+                 >
+                    <h1 nz-typography class="AuthLeftSideTitle">Expert advice from top doctors</h1>
+                    <ul class="list-none space-y-10">
+                            <li class="flex flex-row space-x-3 items-center">
+                                    <div class="h-8 w-8 flex items-center justify-center rounded-full bg-white">
+                                            <span 
+                                            nz-icon 
+                                            nzType="info-circle" 
+                                            nzTheme="twotone"
+                                            [nzTwotoneColor]="'#0891b2'"
+                                            ></span>
+                                    </div>
+            
+                                    <h6 nz-typography class="m-0 listItemForAuth">
+                                            Expert advice from top doctors        
+                                    </h6>
+                               
+                            </li>
+                            <li class="flex flex-row space-x-3 items-center">
+                                    <div class="h-8 w-8 flex items-center justify-center rounded-full bg-white">
+                                            <span nz-icon nzType="clock-circle" nzTheme="twotone" [nzTwotoneColor]="'#0891b2'"></span>
+                                    </div>
+            
+                                    <h6 nz-typography class="m-0 listItemForAuth">
+                                           Available 24/7 on any device       
+                                    </h6>
+                               
+                            </li>
+                            <li class="flex flex-row space-x-3 items-center">
+                                    <div class="h-8 w-8 flex items-center justify-center rounded-full bg-white">
+                                            <span nz-icon nzType="lock" nzTheme="twotone" [nzTwotoneColor]="'#0891b2'"></span>
+                                    </div>
+            
+                                    <h6 nz-typography class="m-0 listItemForAuth">
+                                            Private questions answared within 24 hrs        
+                                    </h6>
+                               
+                            </li>
+                    </ul>
+                </div>
+                </div>
+                <div
+                nz-col 
+                class="gutter-row" 
+                [nzXs]="{span:24}"
+                [nzLg]="{span:11}"
+                [nzMd]="{span:12}"
+                [nzSm]="{span:24}"
+                >
+                    <router-outlet></router-outlet>
+                </div> 
+        </div>
+
+  
+  </div>

@@ -1,0 +1,101 @@
+[
+    
+    {
+        "id":1,
+        "menuName":"Diagnostic Master",
+        "icon":"appstore",
+        "subMenu":[
+            {
+                "id":1,
+                "menuName":"Overview",
+                "icon":"appstore"
+            },
+            {
+                "id":2,
+                "menuName":"Patients",
+                "icon":"user"
+            },
+            {
+                "id":3,
+                "menuName":"Appointment",
+                "icon":"calendar"
+            }
+        ]
+    },
+    {
+        "id":2,
+        "menuName":"Diagnostic Transaction",
+        "icon":"appstore",
+        "subMenu":[
+            {
+                "id":1,
+                "menuName":"Doctors",
+                "icon":"user"
+            },
+            {
+                "id":2,
+                "menuName":"Employee",
+                "icon":"user"
+            },
+            {
+                "id":3,
+                "menuName":"Department",
+                "icon":"calendar"
+            },
+            {
+                "id":4,
+                "menuName":"Payment",
+                "icon":"pay-circle"
+            },
+            {
+                "id":5,
+                "menuName":"Product & Stock",
+                "icon":"product"
+            }
+        ]
+    },
+    {
+        "id":3,
+        "menuName":"Reports",
+        "icon":"user",
+        "subMenu":[
+            {
+                "id":1,
+                "menuName":"Help & Center",
+                 "icon":"info-circle"
+            },
+            {
+                "id":2,
+                "menuName":"Settings",
+                 "icon":"setting"
+            },
+            {
+                "id":3,
+                "menuName":"Report",
+                "icon":"bar-chart"
+            }
+        ]
+    },
+    {
+        "id":4,
+        "menuName":"Help & Settings",
+        "icon":"user",
+        "subMenu":[
+            {
+                "id":1,
+                "menuName":"Help & Center",
+                 "icon":"info-circle"
+            },
+            {
+                "id":2,
+                "menuName":"Settings",
+                 "icon":"setting"
+            },
+            {
+                "id":3,
+                "menuName":"Report",
+                "icon":"bar-chart"
+            }
+        ]
+    }
+]

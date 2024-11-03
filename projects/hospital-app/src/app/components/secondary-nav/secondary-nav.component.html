@@ -1,0 +1,32 @@
+<nz-header class="flex items-center justify-between">
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        @for(item of navMenu;track item.id){
+                @if(item.subMenu.length > 0){
+                    <li nz-submenu nzPlacement="bottomLeft">
+                        <span title>
+                            <!-- <span nz-icon nzType="{{item.icon}}"></span> -->
+                        
+                        <span class="text-xs">{{item.menuName}}</span>
+                        <span nz-icon nzType="down" style="font-size: x-small;" class="mx-2"></span>
+                    </span>
+                            <ul>
+                                @for(subItems of item.subMenu;track subItems.id){
+                                    <li nz-menu-item class="text-xs">
+                                        <span title>
+                                            <span nz-icon nzType="{{subItems.icon}}"></span>
+                                        
+                                        <span class="text-xs"> {{subItems.menuName}}</span></span>
+                                        
+                                       </li>
+                                }
+                            </ul>
+                    </li>
+                }@else{
+                    <li nz-menu-item >
+                        <span title><span nz-icon nzType="{{item.icon}}"></span><span>{{item.menuName}}</span></span>    
+                    </li>
+                }
+        }
+    <li></li>
+    </ul>
+</nz-header>

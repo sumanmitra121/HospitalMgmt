@@ -1,0 +1,198 @@
+<nz-layout class="mainLayout  min-w-screen">
+             <!-- Top Header For Horizontal Menu -->
+            @if(appLayout == 'horizontal'){
+              <TopNav class="horiontalLayoutNavbar"></TopNav>
+              <SecondaryNav></SecondaryNav>
+            }
+            @else{
+              <!-- SideNav For Vertical Menu-->
+              <!-- [ngClass]="{
+                'border-r border-r-neutral-700':theme.currentTheme == 'dark' && !isCollapsed,
+                'border-r':theme.currentTheme == 'default' && !isCollapsed,
+               }" -->
+              <nz-sider [nzWidth]="280"  [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'" nzCollapsible 
+              [(nzCollapsed)]="isCollapsed" [nzTrigger]="null"
+              class="!fixed !overflow-auto left-0 !h-screen shadow-sm"
+             >
+             <!-- [ngClass]="{
+              ' border-b-neutral-700':theme.currentTheme == 'dark'
+             }" -->
+             <!-- border-b -->
+                 <!-- <div class=" h-[64px]  flex items-center justify-between"
+                 
+                 >
+                      <img  src="logo.png" class="h-10"/>
+                 </div>  -->
+                <SideBar [menu]="navMenu"></SideBar>
+              </nz-sider> 
+            }
+       
+        <nz-layout  class="min-h-screen min-w-screen transition-all duration-200 ease-linear"
+              [ngClass]="{
+                'childLayout': appLayout == 'vertical',
+                '!ml-[280px]':!isCollapsed && appLayout == 'vertical',
+
+              }"
+        >
+           <!-- Top Header For Vertical -->
+          @if(appLayout == 'vertical'){
+            <TopNav class="fixed h-auto  mx-5 mt-5 layout-navbar-fixed horiontalLayoutNavbar"
+              [ngClass]="{
+                'w-[calc(100%_-_320px)]':!isCollapsed,
+                'w-[calc(100%_-_40px)]':isCollapsed
+              }"
+            >
+              <lib-NgButton
+              [shape]="'circle'"
+              [nzType]="'text'"
+              [className]="'iconBtn'"
+              (onPress)="isCollapsed = !isCollapsed"
+              > <span
+              class="trigger"
+              nz-icon
+              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+             
+            ></span>
+              </lib-NgButton>
+            </TopNav>
+          }
+          <nz-content class="p-5  !relative"
+          [ngClass]="{
+            'mt-[84px]':appLayout=='vertical'
+          }"
+          >
+              
+              <div class="min-h-[calc(100vh_-_124px)] min-w-screen space-y-3">
+                <div class="fixed right-0
+               top-1/2 p-1 z-50
+              bg-teal-500 rounded-s-full flex items-center justify-start">
+                  <lib-NgButton
+                  [shape]="'circle'"
+                  [nzType]="'text'"
+                  [className]="'iconBtn'"
+                  (onPress)="isVisible = !isVisible"
+                  > <span
+                  class="trigger !text-white !text-xl"
+                  nz-icon
+                  [nzType]="'setting'"
+                ></span>
+                  </lib-NgButton>
+              </div>
+                <router-outlet></router-outlet>
+              </div>
+              <nz-drawer
+              [nzSize]="'default'"
+              [nzVisible]="isVisible"
+              nzPlacement="right"
+              [nzTitle]="'Theme Customizer'"
+              [nzExtra]="extra"
+              [nzMask]="true"
+              [nzMaskClosable]="true"
+              [nzCloseOnNavigation]="true"
+              [nzFooter]="'Customize and preview in real time'"
+              (nzOnClose)="isVisible=!isVisible"
+              [nzCloseIcon]="''"
+            >
+              <ng-container *nzDrawerContent>
+                <form [formGroup]="themeForm">
+                    <nz-divider nzDashed [nzOrientation]="'left'" [nzText]="'Theme'"></nz-divider>
+                    <p class="mt-6">Style (Mode)</p>
+                    <div class="flex items-center justify-start space-x-5 p-2 mr-2 mb-3">
+                      <div class="flex flex-col items-center justify-center">
+                        <label
+                        (click)="changeTheme('default')"
+                        class="form-check-label custom-option-content py-3 px-8  border-2
+                        hover:border-teal-600 cursor-pointer  rounded-md" for="customRadioIconlight"
+                        
+                            [ngClass]="{
+                              'border-teal-600':themeForm.value.theme == 'default',
+                              'border-neutral-500':themeForm.value.theme != 'default' && theme.currentTheme == 'default',
+                              'border-neutral-700':themeForm.value.theme != 'default' && theme.currentTheme == 'dark'
+                            }"
+                        >
+                          <span class="custom-option-body mb-0">
+                            <span nz-icon nzType="sun" nzTheme="outline"></span>
+                          </span>
+                          <input formControlName="theme"  class="form-check-input hidden" type="radio" value="default" id="customRadioIconlight"  checked="themeForm.value.theme == 'default'">
+                        </label>
+                        <label class="form-check-label text-xs text-nowrap text-body mt-1" for="customRadioIconlight">Light</label>
+                      </div>
+                      <div class="flex flex-col items-center justify-center">
+                        <label 
+                        (click)="changeTheme('dark')"
+                        class="form-check-label custom-option-content py-3 px-8 border-2   hover:border-teal-600 cursor-pointer  rounded-md" for="customRadioIcondark"
+                        [ngClass]="{
+                          'border-teal-600':themeForm.value.theme == 'dark'
+                        }"
+                        >
+                          <span class="custom-option-body mb-0">
+                            <span nz-icon nzType="moon" nzTheme="outline"></span>
+                          </span>
+                          <input formControlName="theme"  class="form-check-input hidden" type="radio" value="dark" id="customRadioIcondark" checked="themeForm.value.theme == 'dark'">
+                        </label>
+                        <label class="form-check-label text-xs text-nowrap text-body mt-1" for="customRadioIcondark">Dark</label>
+                      </div>
+                    </div>
+    
+                    <nz-divider nzDashed [nzOrientation]="'left'" [nzText]="'Layout'"></nz-divider>
+                    <p class="mt-6">Menu Navigation</p>
+                    <div class="flex items-center justify-start space-x-5 p-2 mr-2">
+                      <div class="flex flex-col items-center justify-center">
+                        <label
+                        (click)="changeLayout('vertical')"
+                        class="form-check-label custom-option-content p-0  border-2
+                        hover:border-teal-600 cursor-pointer  rounded-md" for="customRadioIconvertical"
+                        
+                            [ngClass]="{
+                              'border-teal-600':themeForm.value.layout == 'vertical',
+                              'border-neutral-200':themeForm.value.layout != 'vertical' && themeForm.value.theme == 'default',
+                              'border-neutral-700':themeForm.value.layout != 'vertical' && themeForm.value.theme == 'dark'
+                            }"
+                        >
+                          <span class="custom-option-body mb-0">
+                            <img src="vertical.svg" alt="hospitalVerticalMenuImg"/>
+                          </span>
+                          <input formControlName="layout"  class="form-check-input hidden" type="radio" value="vertical" id="customRadioIconvertical"  checked="themeForm.value.layout == 'vertical'">
+                        </label>
+                        <label class="form-check-label text-xs text-nowrap text-body mt-1" for="customRadioIconvertical">Vertical</label>
+                      </div>
+                      <div class="flex flex-col items-center justify-center">
+                        <label 
+                        (click)="changeLayout('horizontal')"
+                        class="form-check-label custom-option-content p-0 border-2   hover:border-teal-600 cursor-pointer  rounded-md" for="customRadioIconhorizontal"
+                        [ngClass]="{
+                          'border-teal-600':themeForm.value.layout == 'horizontal',
+                          'border-neutral-200':themeForm.value.layout != 'horizontal' && theme.currentTheme == 'default',
+                          'border-neutral-700':themeForm.value.layout != 'horizontal' && theme.currentTheme == 'dark'
+                        }"
+                        >
+                          <span class="custom-option-body mb-0">
+                            <!-- <span nz-icon nzType="moon" nzTheme="outline"></span> -->
+                             <img src="horizontal.svg" alt="hospitalHorizontalMenuImg"/>
+                          </span>
+                          <input formControlName="layout"  class="form-check-input hidden" type="radio" value="horizontal" id="customRadioIconhorizontal" checked="themeForm.value.layout == 'horizontal'">
+                        </label>
+                        <label class="form-check-label text-xs text-nowrap text-body mt-1" for="customRadioIconhorizontal">Horizontal</label>
+                      </div>
+                    </div>
+                  </form>
+              </ng-container>
+            </nz-drawer>
+          </nz-content>
+        </nz-layout>
+
+        <ng-template #extra>
+          <lib-NgButton
+          [shape]="'circle'"
+          [nzType]="'text'"
+          [className]="'iconBtn'"
+          (onPress)="isVisible=!isVisible"
+          > <span
+          class="trigger"
+          nz-icon
+          [nzType]="'close'"
+         
+        ></span>
+          </lib-NgButton>
+        </ng-template>
+      </nz-layout>

@@ -1,0 +1,116 @@
+<nz-header 
+class="headerLayout  flex items-center justify-between transition-all duration-200 ease-linear"
+[ngClass]="{
+   'min-h-[96px]':appLayout == 'horizontal',
+   'min-h-[64px] !px-3 rounded-[.375rem] shadow-sm shadow-[#22303e14]':appLayout == 'vertical',
+    ' border-b-neutral-700':theme.currentTheme == 'dark'
+      }"
+    >
+    <div class="logo flex items-center justify-center space-x-5">
+        <ng-content></ng-content>
+
+        @if(appLayout ==  'horizontal'){
+          <img
+          src="logo.png"
+          [ngClass]="{
+            'h-14':appLayout == 'horizontal'
+          }"
+      />
+        }
+        <!-- [ngClass]="{
+          '!bg-gray-100':theme.currentTheme == 'default'
+         }" -->
+        <nz-input-group [nzSuffix]="suffixIconSearch" class="!w-72 !border-none !bg-transparent !outline-none focus:!shadow-none"
+           
+        >
+        <!-- [ngClass]="{
+          '!bg-gray-100':theme.currentTheme == 'default'
+         }" -->
+          <input type="text" [nzBorderless]="true" nz-input placeholder="Search by name or MRN (ctrl+/)" class="!text-xs !bg-transparent"
+        
+          />
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <span nz-icon nzType="search"></span>
+        </ng-template>
+    </div>
+    <div class="flex items-center">
+        <ul class="border-none" class="space-x-1 flex items-center m-0">
+          <li class="inline-block">
+            <lib-NgButton
+            [shape]="'circle'"
+            [nzType]="'text'"
+            [className]="'iconBtn'"
+            > <span nz-icon nzType="global" nzTheme="outline" style="font-size: 18px;font-weight: bold;"></span>
+            </lib-NgButton>
+          </li>
+          <li class="inline-block">
+            <lib-NgButton
+            [shape]="'circle'"
+            (onPress)="toggleTheme(theme.currentTheme == 'dark' ? 'default' : 'dark')"
+            [className]="'iconBtn'"
+            [nzType]="'text'"
+            > <span nz-icon nzType="{{theme.currentTheme == 'dark' ? 'sun' : 'moon'}}" nzTheme="fill" style="font-size: 18px;"></span>
+            </lib-NgButton>
+         </li>
+           
+            <li class="inline-block">
+              <lib-NgButton
+              [shape]="'circle'"
+              [nzType]="'text'"
+              [className]="'iconBtn'"
+              > <span nz-icon nzType="product" nzTheme="outline" style="font-size: 18px;font-weight: bold;"></span>
+              </lib-NgButton>
+          </li>
+          <li class="inline-block">
+            <lib-NgButton
+            [shape]="'circle'"
+            [nzType]="'text'"
+            [className]="'iconBtn'"
+            > <span nz-icon nzType="bell" nzTheme="outline" style="font-size: 18px;font-weight: bold;"></span>
+            </lib-NgButton>
+    </li>
+            <!-- <li class="inline-block">
+                <a nz-dropdown [nzDropdownMenu]="menu" [nzTrigger]="'click'" [nzPlacement]="'bottomCenter'">
+                    <lib-NgButton
+                    [shape]="'circle'"
+                    [nzType]="'text'"
+                    [className]="'iconBtn'"
+                    > <span nz-icon nzType="setting" nzTheme="outline" style="font-size: medium;"></span>
+                    </lib-NgButton>
+                  </a>
+                  <nz-dropdown-menu #menu="nzDropdownMenu" >
+                    <ul nz-menu nzSelectable>
+                      <li nz-menu-group nzTitle="Menu Type" >
+                        <ul>
+                            <li nz-menu-item nzSelectable (click)="toggleLayout('horizontal')">Horizontal Menu</li>
+                            <li nz-menu-item nzSelectable (click)="toggleLayout('vertical')">Vertical Menu</li>
+                          </ul>
+                      </li>
+                      <li nz-menu-group nzTitle="Theme Type">
+                        <ul>
+                            <li nz-menu-item nzSelectable>
+                                <span title class="space-x-2" (click)="toggleTheme('dark')"><span nz-icon nzType="moon"></span><span>Dark</span></span>  
+                            </li>
+                            <li nz-menu-item nzSelectable>
+                                <span title  class="space-x-2" (click)="toggleTheme('default')"><span nz-icon nzType="sun"></span><span>Light</span></span>  
+                            </li>
+                          </ul>
+                      </li>
+                    </ul>
+                  </nz-dropdown-menu>
+               
+            </li> -->
+            
+           
+            <li class="inline-block">
+                        <lib-NgAvatar
+                         [size]="'large'"
+                         [text]="'SM'"
+                         [src]="'userAvatar.png'"
+                         [background-color]="'#f56a00'"
+                        ></lib-NgAvatar>
+            </li>
+          </ul>    
+    </div>
+    </nz-header >
