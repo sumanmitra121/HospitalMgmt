@@ -27,10 +27,12 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzSegmentedOptions } from 'ng-zorro-antd/segmented';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NgTextFieldComponent } from 'NgTextField';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -69,8 +71,8 @@ export interface Data {
     FormsModule,
     CommonModule,
     NgButtonComponent,
-    NzIconModule,
-    NzGridModule, NzDatePickerModule,NzSegmentedModule,NzTableModule,NzAlertModule,
+    NzIconModule,NzDropDownModule,
+    NzGridModule, NzDatePickerModule,NzSegmentedModule,NzTableModule,NzAlertModule,NzListModule,
     NzTypographyModule, NzDividerModule, NzBadgeModule, NgApexchartsModule,NgTextFieldComponent,
     NzProgressModule, NzCardModule],
   templateUrl: './dummy-dashboard.component.html',

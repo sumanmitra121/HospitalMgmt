@@ -10,7 +10,7 @@
                 'border-r border-r-neutral-700':theme.currentTheme == 'dark' && !isCollapsed,
                 'border-r':theme.currentTheme == 'default' && !isCollapsed,
                }" -->
-              <nz-sider [nzWidth]="280"  [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'" nzCollapsible 
+              <nz-sider [nzWidth]="280"  [nzCollapsedWidth]="0" [nzBreakpoint]="'xl'" nzCollapsible 
               [(nzCollapsed)]="isCollapsed" [nzTrigger]="null"
               class="!fixed !overflow-auto left-0 !h-screen shadow-sm"
              >
@@ -27,7 +27,7 @@
               </nz-sider> 
             }
        
-        <nz-layout  class="min-h-screen min-w-screen transition-all duration-200 ease-linear"
+        <nz-layout  class="!min-h-screen !min-w-screen !transition-all !duration-200 !ease-linear"
               [ngClass]="{
                 'childLayout': appLayout == 'vertical',
                 '!ml-[280px]':!isCollapsed && appLayout == 'vertical',
