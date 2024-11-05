@@ -2,24 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {
-    /* width */
-    ::-webkit-scrollbar {
-      @apply w-1;
-    }
-    
-    /* Track */
-    ::-webkit-scrollbar-track {
-      @apply bg-inherit;
-    }
-    
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      @apply bg-gray-400 dark:bg-neutral-600 rounded-sm;
-    }
-    
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      @apply bg-neutral-600;
-    }
+
+/* add the code bellow */ 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
 }
+};
