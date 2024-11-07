@@ -39,7 +39,7 @@ export class SignInComponent {
   signIn() :void{
     if (this.signInForm.valid) {
       console.log('submit', this.signInForm.value);
-      this.router.navigate(['/main'])
+      this.router.navigate(['/outlet'])
     } else {
       Object.values(this.signInForm.controls).forEach(control => {
         if (control.invalid) {

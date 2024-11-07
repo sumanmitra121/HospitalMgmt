@@ -1,12 +1,12 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, output, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgButtonComponent } from 'NgButton';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-ng-swiper',
   standalone: true,
-  imports: [NgButtonComponent,NzIconModule],
+  imports: [NgButtonComponent,NzIconModule,RouterModule],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './ng-swiper.component.html',
   styleUrl: './ng-swiper.component.less'
@@ -38,7 +38,7 @@ export class NgSwiperComponent {
       spaceBetween: 10,
     },
     1600:{
-      slidesPerView:8,
+      slidesPerView:6,
       spaceBetween: 10,
     }
   };
@@ -47,7 +47,7 @@ export class NgSwiperComponent {
 
   @Input({alias:'spaceBetween'}) spaceBetween:number = 50;
 
-  @Input({alias:'navigation'}) navigation:boolean = false;
+  @Input({alias:'navigation'}) navigation:boolean = true;
 
   @Input({alias:'pagination'}) pagination:boolean = false;
 
