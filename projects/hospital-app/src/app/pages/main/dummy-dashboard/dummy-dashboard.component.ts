@@ -14,6 +14,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+
 import { ApexGrid, ApexResponsive, ApexTheme, ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexAxisChartSeries,
@@ -27,6 +28,7 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
+import {  NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzSegmentedOptions } from 'ng-zorro-antd/segmented';
@@ -70,7 +72,7 @@ export interface Data {
     NzSelectModule,
     FormsModule,
     CommonModule,
-    NgButtonComponent,
+    NgButtonComponent,NzFlexModule,
     NzIconModule,NzDropDownModule,
     NzGridModule, NzDatePickerModule,NzSegmentedModule,NzTableModule,NzAlertModule,NzListModule,
     NzTypographyModule, NzDividerModule, NzBadgeModule, NgApexchartsModule,NgTextFieldComponent,

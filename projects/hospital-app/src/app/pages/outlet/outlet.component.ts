@@ -5,10 +5,14 @@ import { NgButtonComponent } from 'NgButton';
 import { NgSwiperComponent } from '../../components/ng-swiper/ng-swiper.component';
 import Module from '../../../../public/json/Module.json';
 import { CommonModule } from '@angular/common';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-outlet',
   standalone: true,
-  imports: [NgButtonComponent,NzIconModule,NgAvatarComponent,NgSwiperComponent,CommonModule],
+  imports: [NgButtonComponent,NzIconModule,
+    RouterModule,NzGridModule,
+    NgAvatarComponent,NgSwiperComponent,CommonModule],
   templateUrl: './outlet.component.html',
   styleUrl: './outlet.component.less'
 })
