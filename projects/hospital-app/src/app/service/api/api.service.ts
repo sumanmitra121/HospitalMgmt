@@ -15,7 +15,7 @@ type params = HttpParams | {[param: string]: string | number | boolean | Readonl
      callApi(
         api_name:string,
         flag:number,
-        payload:GenericObject,
+        payload:GenericObject | null = null,
         params:params | undefined = undefined,
         observe:undefined | 'body' = 'body'){
             if(flag == 0){

@@ -1,0 +1,153 @@
+<div class="flex justify-between items-center flex-col md:flex-row space-y-3 md:space-y-0">
+    <div>
+        <p class="text-xl md:text-2xl m-0">
+            <span class="trigger !text-lg" nz-icon [nzType]="'user'" nzTheme="outline"></span>
+            Patients
+        </p>
+        <span class="text-xs">
+            There is the latest update for the last 7 days. Check Now
+        </span>
+    </div>
+    <div class="flex items-center justify-center space-x-4">
+        <lib-NgButton [title]="'Add Patient'"
+        (onPress)="handleOpenModal()"
+        [nzType]="'primary'" [className]="'iconBtn'">
+            <pre-icon>
+                <span class="trigger !text-white !text-lg" nz-icon [nzType]="'plus'" nzTheme="outline"></span>
+            </pre-icon>
+        </lib-NgButton>
+    </div>
+</div>
+<div class="my-5">
+    <nz-card [nzBordered]="true" nzTitle="">
+        <nz-table nzShowPagination nzShowSizeChanger [nzData]="md_patient">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>address</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (data of md_patient; track data) {
+                <tr>
+                    <td>{{ data.id + 1}}</td>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.username }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.address.street }} {{ data.address.suite }} {{ data.address.city }} {{
+                        data.address.zipcode }}</td>
+                    <td>
+                        <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+                            <lib-NgButton [nzType]="'text'" [shape]="'circle'" [className]="'iconBtn'"> <span
+                                    class="trigger !text-2xl" nz-icon [nzType]="'more'" nzTheme="outline"></span>
+                            </lib-NgButton>
+                        </a>
+                        <nz-dropdown-menu #menu="nzDropdownMenu" [nzPlacement]="'bottomLeft'">
+                            <ul nz-menu>
+                                <li nz-menu-item (click)="handleRowEdit(data)">
+                                    <span class="trigger !text-sm" nz-icon [nzType]="'edit'" nzTheme="outline"></span>
+                                    Edit
+                                </li>
+                                <li nz-menu-item
+                                nz-popconfirm
+                                nzPopconfirmTitle="Are you sure delete this patient?"
+                                nzPopconfirmPlacement="bottom"
+                                (nzOnConfirm)="confirm(data)"
+                                (nzOnCancel)="cancel()"
+                                ><span class="trigger !text-sm" nz-icon [nzType]="'delete'" nzTheme="outline"></span>
+                                    Delete
+                                </li>
+                            </ul>
+                        </nz-dropdown-menu>
+
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </nz-table>
+    </nz-card>
+
+    <nz-modal [(nzVisible)]="isVisibleMiddle" 
+    
+    nzTitle="Patient Details" 
+    nzCentered
+        (nzOnCancel)="handleCancelMiddle()" (nzOnOk)="handleOkMiddle()">
+        <ng-container *nzModalContent>
+            <form nz-form  [formGroup]="patientForm" id="lawra" (ngSubmit)="changePatient()" autocomplete="off">
+                <lib-NgTextField [label]="'Name'" [placeholder]="'Enter Name'" [isRequired]="true" [size]="'default'"
+                    [inputId]="'name'" [inputName]="'name'" [suffixIcon]="'user'"
+                    [controlName]="patientForm.controls.name" [type]="'text'">
+                </lib-NgTextField>
+
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col class="gutter-row" [nzSpan]="12">
+                        <lib-NgTextField [label]="'Email'" [placeholder]="'Enter Email'" [isRequired]="true"
+                            [size]="'default'" [inputId]="'email'" [inputName]="'email'" [suffixIcon]="'mail'"
+                            [controlName]="patientForm.controls.email" [type]="'text'">
+                        </lib-NgTextField>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="12">
+                        <lib-NgTextField [label]="'Username'" [placeholder]="'Enter Username'" [isRequired]="true"
+                            [size]="'default'" [inputId]="'username'" [inputName]="'username'" [suffixIcon]="'user'"
+                            [controlName]="patientForm.controls.username" [type]="'text'">
+                        </lib-NgTextField>
+                    </div>
+                </div>
+
+
+                <lib-NgTextField [label]="'Phone'" [placeholder]="'Enter Phone'" [isRequired]="true" [size]="'default'"
+                    [inputId]="'phone'" [inputName]="'phone'" [suffixIcon]="'phone'"
+                    [controlName]="patientForm.controls.phone" [type]="'text'">
+                </lib-NgTextField>
+
+
+
+
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col class="gutter-row" [nzSpan]="12">
+                        <lib-NgTextField [label]="'Street'" [placeholder]="'Enter Street'" [isRequired]="true"
+                            [size]="'default'" [inputId]="'street'" [inputName]="'street'" [suffixIcon]="''"
+                            [controlName]="patientForm.controls.street" [type]="'text'">
+                        </lib-NgTextField>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="12">
+                        <lib-NgTextField [label]="'Suite'" [placeholder]="'Enter Suite'" [isRequired]="true"
+                            [size]="'default'" [inputId]="'suite'" [inputName]="'suite'" [suffixIcon]="''"
+                            [controlName]="patientForm.controls.suite" [type]="'text'">
+                        </lib-NgTextField>
+                    </div>
+                </div>
+
+
+                <lib-NgTextField [label]="'City'" [placeholder]="'Enter City'" [isRequired]="true" [size]="'default'"
+                    [inputId]="'city'" [inputName]="'city'" [suffixIcon]="''"
+                    [controlName]="patientForm.controls.city" [type]="'text'">
+                </lib-NgTextField>
+
+             
+               
+            </form>
+        </ng-container>
+
+        <ng-template [nzModalFooter]>
+            <div class="!flex !justify-end !items-end mt-2">
+                <nz-form-item nz-row>
+                    <nz-form-control>
+                            <lib-NgButton
+                            [type]="'submit'"
+                            [fullWidth]="false"
+                            [form]="'lawra'"
+                            [title]="'SUBMIT'"></lib-NgButton>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+          </ng-template>
+    </nz-modal>
+</div>

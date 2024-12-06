@@ -8,17 +8,20 @@
             {
                 "id":1,
                 "menuName":"Overview",
-                "icon":"appstore"
+                "icon":"appstore",
+                "url":"/main/home"
             },
             {
                 "id":2,
                 "menuName":"Patients",
-                "icon":"user"
+                "icon":"user",
+                "url":"/main/patient"
             },
             {
                 "id":3,
                 "menuName":"Appointment",
-                "icon":"calendar"
+                "icon":"calendar",
+                "url":"/main/calendar"
             }
         ]
     },
@@ -30,27 +33,32 @@
             {
                 "id":1,
                 "menuName":"Doctors",
-                "icon":"user"
+                "icon":"user",
+                "url":"/main/doctors"
             },
             {
                 "id":2,
                 "menuName":"Employee",
-                "icon":"user"
+                "icon":"user",
+                "url":"['/', 'main', 'employee']"
             },
             {
                 "id":3,
                 "menuName":"Department",
-                "icon":"calendar"
+                "icon":"calendar",
+                "url":"['/', 'main', 'department']"
             },
             {
                 "id":4,
                 "menuName":"Payment",
-                "icon":"pay-circle"
+                "icon":"pay-circle",
+                "url":"['/', 'main', 'payment']"
             },
             {
                 "id":5,
                 "menuName":"Product & Stock",
-                "icon":"product"
+                "icon":"product",
+                "url":"['/', 'main', 'product']"
             }
         ]
     },
@@ -62,17 +70,20 @@
             {
                 "id":1,
                 "menuName":"Help & Center",
-                 "icon":"info-circle"
+                 "icon":"info-circle",
+                 "url":"['/', 'main', 'help_center']"
             },
             {
                 "id":2,
                 "menuName":"Settings",
-                 "icon":"setting"
+                "icon":"setting",
+                "url":"['/', 'main', 'settings']"
             },
             {
                 "id":3,
                 "menuName":"Report",
-                "icon":"bar-chart"
+                "icon":"bar-chart",
+                "url":"['/', 'main', 'report']"
             }
         ]
     },
@@ -84,17 +95,20 @@
             {
                 "id":1,
                 "menuName":"Help & Center",
-                 "icon":"info-circle"
+                "icon":"info-circle",
+                "url":"['/', 'main', 'help_settings']"
             },
             {
                 "id":2,
                 "menuName":"Settings",
-                 "icon":"setting"
+                "icon":"setting",
+                "url":"['/', 'main', 'settings']"
             },
             {
                 "id":3,
                 "menuName":"Report",
-                "icon":"bar-chart"
+                "icon":"bar-chart",
+                "url":"['/', 'main', 'reports_chart']"
             }
         ]
     }

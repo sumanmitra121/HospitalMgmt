@@ -18,6 +18,8 @@ export type ButtonSize = 'large' | 'default' | 'small';
   template: `
       <button 
         nz-button 
+        id="{{buttonId}}"
+        [attr.form]="buttonForm"
         [nzType]="NzType"
         [nzBlock]="nzBlock"
         type='{{buttonType}}'
@@ -28,9 +30,10 @@ export type ButtonSize = 'large' | 'default' | 'small';
         [nzGhost]="nzGhost"
         (click)="buttonPress()"
         >
-        <ng-container *ngIf="buttonName">
-          {{buttonName}}
-        </ng-container>
+        <ng-content select="pre-icon"></ng-content>
+          <ng-container *ngIf="buttonName">
+            {{buttonName}}
+          </ng-container>
         <ng-content></ng-content>
         </button>
   `,
@@ -38,6 +41,11 @@ export type ButtonSize = 'large' | 'default' | 'small';
 })
 export class NgButtonComponent {
   @Input({alias:'title'}) buttonName:string = '';
+
+  @Input({alias:'id'}) buttonId:string = '';
+
+  @Input({alias:'form'}) buttonForm:string = '';
+
 
   @Input({alias:'type'}) buttonType:string | Type.button | Type.reset | Type.submit = Type.button;
 

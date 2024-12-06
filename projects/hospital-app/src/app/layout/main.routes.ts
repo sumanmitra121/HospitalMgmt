@@ -7,7 +7,16 @@ export const routes: Routes = [
         children:[
             {
                 path:'',
+                pathMatch:'full',
+                redirectTo:'home'
+            },
+            {
+                path:'home',
                 loadComponent:() => import('../pages/main/dummy-dashboard/dummy-dashboard.component').then(m => m.DummyDashboardComponent)
+            },
+            {
+                path:'patient',
+                loadComponent:() => import('../pages/main/dummy-list/dummy-list.component').then(m => m.DummyListComponent)
             }
         ]
     }
