@@ -7,6 +7,9 @@
 @body-background: #222222;
 @border-radius-base: 4px;
 @label-color:#fffffff5;
+@menu-highlight-color: @white;
+@menu-item-active-bg:@primary-color;
+@menu-dark-bg: @layout-header-background;
 @font-face {
     font-family: 'Bold';
     src: url("../../../public/fonts/Nunito-Bold.ttf") format("truetype");
@@ -63,4 +66,12 @@
     background: linear-gradient(180deg, #222222 44%, #3f3f3f 73%, #f5f5f9);
     -webkit-mask: linear-gradient(#f5f5f9, #f5f5f9 18%, transparent 100%);
     mask: linear-gradient(#222222, #141414 18%, transparent 100%);
+}
+
+.ant-menu-item a:hover{
+    color:@primary-color!important;
+}
+.ant-menu-item-selected a, 
+.ant-menu-item-selected a:hover{
+    color:@white!important;
 }

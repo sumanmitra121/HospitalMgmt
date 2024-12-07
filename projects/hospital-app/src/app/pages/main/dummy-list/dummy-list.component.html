@@ -9,32 +9,44 @@
         </span>
     </div>
     <div class="flex items-center justify-center space-x-4">
+        <lib-NgTextField [label]="''" [placeholder]="'Search....'" [isRequired]="false"
+            [size]="'default'" [inputId]="'searchTxt'" [inputName]="'searchTxt'" [suffixIcon]="'search'"
+            [controlName]="searchTxt" [type]="'text'">
+        </lib-NgTextField>
+
+        <lib-NgButton [title]="'Export'"
+        [nzType]="'default'" [className]="'iconBtn'">
+            <pre-icon>
+                <span class="trigger !text-lg" nz-icon [nzType]="'download'" nzTheme="outline"></span>
+            </pre-icon>
+        </lib-NgButton>
         <lib-NgButton [title]="'Add Patient'"
         (onPress)="handleOpenModal()"
-        [nzType]="'primary'" [className]="'iconBtn'">
+        [nzType]="'default'" [className]="'iconBtn'">
             <pre-icon>
-                <span class="trigger !text-white !text-lg" nz-icon [nzType]="'plus'" nzTheme="outline"></span>
+                <span class="trigger !text-lg" nz-icon [nzType]="'plus'" nzTheme="outline"></span>
             </pre-icon>
         </lib-NgButton>
     </div>
 </div>
 <div class="my-5">
-    <nz-card [nzBordered]="true" nzTitle="">
-        <nz-table nzShowPagination nzShowSizeChanger [nzData]="md_patient">
+    <!-- <nz-card [nzBordered]="true" nzTitle=""> -->
+        <nz-table [nzPaginationPosition]="'bottom'" [nzPageSize]="10" [nzTotal]="md_patient.length" [nzPageSizeOptions]="[10,20,30,40,50]" [nzResponsive]="true"  [nzShowQuickJumper]="true" [nzShowSizeChanger]="true" [nzSize]="'default'"  [nzPaginationType]="'default'" [nzBordered]="true" 
+        [nzSimple]="false" #patientTble  nzShowPagination nzShowSizeChanger [nzData]="md_patient">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th>Patient Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>address</th>
-                    <th></th>
+                    @for (column of listOfColumn; track column) {
+                        <th [nzSortFn]="column.compare">
+                          {{ column.title }}
+                        </th>
+                    }
+                    <th ></th>
                 </tr>
             </thead>
             <tbody>
-                @for (data of md_patient; track data) {
+                @for (data of patientTble.data|filter:searchTxt.value; track data) {
                 <tr>
-                    <td>{{ data.id + 1}}</td>
+                    <td>{{ data.id}}</td>
                     <td>{{ data.name }}</td>
                     <td>{{ data.username }}</td>
                     <td>{{ data.email }}</td>
@@ -42,8 +54,8 @@
                         data.address.zipcode }}</td>
                     <td>
                         <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
-                            <lib-NgButton [nzType]="'text'" [shape]="'circle'" [className]="'iconBtn'"> <span
-                                    class="trigger !text-2xl" nz-icon [nzType]="'more'" nzTheme="outline"></span>
+                            <lib-NgButton [size]="'small'" [nzType]="'link'" [shape]="'circle'" [className]="'iconBtn'"> <span
+                                    class="trigger !text-lg" nz-icon [nzType]="'more'" nzTheme="outline"></span>
                             </lib-NgButton>
                         </a>
                         <nz-dropdown-menu #menu="nzDropdownMenu" [nzPlacement]="'bottomLeft'">
@@ -70,7 +82,7 @@
                 }
             </tbody>
         </nz-table>
-    </nz-card>
+    <!-- </nz-card> -->
 
     <nz-modal [(nzVisible)]="isVisibleMiddle" 
     

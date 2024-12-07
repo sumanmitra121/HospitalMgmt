@@ -17,6 +17,14 @@
 @card-head-padding-sm: 6px;
 @alert-padding-vertical: 3px ;
 @alert-padding-horizontal: 3px;
+
+/**TABLE **/
+@table-padding-vertical: 8px;
+@table-padding-horizontal: 8px;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 1.5);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 1.5);
 .mainLayout{
     min-height: 100vh!important;
     position: relative;
@@ -45,4 +53,16 @@
 }
 .ant-form-item{
     margin-bottom: 0px!important;
+}
+.ant-divider-horizontal{
+    margin:0px!important;
+}
+
+
+.ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, 
+.ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after{
+    border-right:0px!important;
+}
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left{
+    border-right:0px!important
 }

@@ -1,0 +1,25 @@
+<div class="group relative cursor-pointer overflow-hidden  shadow-md ring-1 ring-gray-900/5
+                                                transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm rounded-lg p-3 bg-no-repeat bg-center"
+    style="background-image:  linear-gradient(267deg, rgb(0 0 0 / 46%), rgb(0 0 0)),url({{moduleItem?.image}});background-size: 100% 100%;">
+
+    <div class="relative z-10 mx-auto max-w-md">
+        <span class="block md:hidden h-10 w-10">
+        </span>
+        <div class="space-y-2 pt-2 leading-5 text-white transition-all duration-300 group-hover:text-white/90 ">
+            <p class="text-[16px] m-0 truncate">
+                {{moduleItem?.moduleName}}
+            </p>
+            <p class=" text-xs m-0">
+                {{moduleItem?.modulDescriptions}}
+            </p>
+        </div>
+        <div class="pt-5 text-base font-semibold leading-7">
+            <p>
+                <a [routerLink]="[moduleItem?.routeName]"
+                    class="text-white transition-all duration-300 group-hover:text-white">Open
+                    &rarr;
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

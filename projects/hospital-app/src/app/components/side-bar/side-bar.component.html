@@ -19,19 +19,23 @@
 
     <ul nz-menu nzTheme="light" nzMode="inline">
       <li class="my-3 text-center">
-            <img src="logo.png" class="h-24 mx-auto"/> 
+            <img src="logo.png" class="h-14 mx-auto"/> 
       </li>
         @for(item of navMenu;track item.id){
           @if(item.subMenu.length > 0){
                 <li nz-menu-group>
                     <span title class="text-xs">{{item.menuName}}</span> 
                   <ul nz-menu>
-                    @for(subItems of item.subMenu;track subItems.id){
-                      <li nz-menu-item  nzMatchRouter>
+                    @for(subItems of item.subMenu;track subItems.id; let index = $index){
+                      <li nz-menu-item  nzMatchRouter class="!my-0">
                         <a [routerLink]="subItems.url">
                           <span title class="text-xs"><span nz-icon nzType="{{subItems.icon}}"></span><span class=" font-medium"> {{subItems.menuName}}</span></span> 
                         </a>
                       </li>
+                      @if(index < item.subMenu.length){
+                        <nz-divider></nz-divider>
+
+                      }
                      }
                   </ul>
                 </li>

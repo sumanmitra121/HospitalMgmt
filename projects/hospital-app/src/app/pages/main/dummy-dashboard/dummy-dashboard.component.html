@@ -423,10 +423,11 @@
     <div nz-col class="gutter-row " [nzSpan]="24">
         <nz-card [nzTitle]="tableTitle" [nzSize]="'small'" [nzExtra]="extraTable" class="!h-full" [nzHoverable]="false">
             <nz-table
-            [nzSize]="'small'"
+            [nzSize]="'default'"
             [nzScroll]="{ x: '1000px'}"
             #rowSelectionTable
             nzShowPagination
+            
             nzShowSizeChanger
             [nzData]="listOfData"
             (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
@@ -451,7 +452,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (data of rowSelectionTable.data; track data) {
+              @for (data of rowSelectionTable.data|filter:searchTxt.value; track data) {
                 <tr>
                   <td
                     [nzChecked]="setOfCheckedId.has(data.id)"
@@ -494,7 +495,7 @@
         </ng-template>
         <ng-template #extraTable>
             <div class="items-center !space-x-1  hidden md:flex">
-            <lib-NgTextField
+            <!-- <lib-NgTextField
             [placeholder]="'Search anything here'"
             [isRequired]="false"
             [size]="'default'"
@@ -503,6 +504,10 @@
             [suffixIcon]="'search'"
             [type]="'text'"
         >
+        </lib-NgTextField> -->
+        <lib-NgTextField [label]="''" [placeholder]="'Search anything here'" [isRequired]="false"
+            [size]="'default'" [inputId]="'searchTxt'" [inputName]="'searchTxt'" [suffixIcon]="'search'"
+            [controlName]="searchTxt" [type]="'text'">
         </lib-NgTextField>
             <lib-NgButton [title]="'Filter'" [nzType]="'default'" [className]="'iconBtn !m-0'">
                 <span class="trigger" nz-icon [nzType]="'filter'" nzTheme="outline"></span>

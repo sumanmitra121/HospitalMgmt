@@ -10,10 +10,23 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Rout
 })
 export class AppComponent {
   title = 'hospital-app';
-  isRoutingStart:boolean = true;
-  constructor(private router: Router){
-      router.events.forEach(event => {
-          this.isRoutingStart = event instanceof NavigationEnd;
+  isRoutingStart: boolean = true;
+  constructor(private router: Router) {
+    router.events.forEach(event => {
+      if (event instanceof NavigationStart) {
+        this.isRoutingStart = true
+      }
+      if (event instanceof NavigationEnd) {
+        this.isRoutingStart = false
+      }
+
+      // Set loading state to false in both of the below events to hide the spinner in case a request fails
+      if (event instanceof NavigationCancel) {
+        this.isRoutingStart = false
+      }
+      if (event instanceof NavigationError) {
+        this.isRoutingStart = false
+      }
     });
   }
 }

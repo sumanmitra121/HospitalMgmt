@@ -1,5 +1,5 @@
 import { Component, inject, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NgButtonComponent } from 'NgButton';
@@ -28,13 +28,14 @@ import {
   ApexFill,
   ApexTooltip
 } from "ng-apexcharts";
-import {  NzFlexModule } from 'ng-zorro-antd/flex';
+import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzSegmentedOptions } from 'ng-zorro-antd/segmented';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NgTextFieldComponent } from 'NgTextField';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { FilterPipe } from '../../../globalPipes/filter.pipe';
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -53,16 +54,16 @@ export type ChartOptions = {
 
 export interface Data {
   id: number;
-  id_code:string;
-  time:string;
+  id_code: string;
+  time: string;
   name: string;
   age: number;
-  created_date:string;
-  type:string;
+  created_date: string;
+  type: string;
   address: string;
   disabled: boolean;
-  action:string;
-  patient_status:string;
+  action: string;
+  patient_status: string;
 }
 
 @Component({
@@ -72,10 +73,11 @@ export interface Data {
     NzSelectModule,
     FormsModule,
     CommonModule,
-    NgButtonComponent,NzFlexModule,
-    NzIconModule,NzDropDownModule,
-    NzGridModule, NzDatePickerModule,NzSegmentedModule,NzTableModule,NzAlertModule,NzListModule,
-    NzTypographyModule, NzDividerModule, NzBadgeModule, NgApexchartsModule,NgTextFieldComponent,
+    NgButtonComponent, NzFlexModule,
+    FilterPipe, ReactiveFormsModule,
+    NzIconModule, NzDropDownModule,
+    NzGridModule, NzDatePickerModule, NzSegmentedModule, NzTableModule, NzAlertModule, NzListModule,
+    NzTypographyModule, NzDividerModule, NzBadgeModule, NgApexchartsModule, NgTextFieldComponent,
     NzProgressModule, NzCardModule],
   templateUrl: './dummy-dashboard.component.html',
   styleUrl: './dummy-dashboard.component.less'
@@ -83,7 +85,7 @@ export interface Data {
 export class DummyDashboardComponent {
   theme = inject(ThemeService);
   @ViewChild("chart") chart!: ChartComponent;
-
+  searchTxt = new FormControl<string | number | null>('');
   public chartOptions!: Partial<ChartOptions>;
 
   date = null;
@@ -91,7 +93,7 @@ export class DummyDashboardComponent {
     { value: 'bar-chart', icon: 'bar-chart' },
     { value: 'pie-chart', icon: 'pie-chart' }
   ];
-  selectedIndex=0;
+  selectedIndex = 0;
   checked = false;
   loading = false;
   indeterminate = false;
@@ -186,7 +188,7 @@ export class DummyDashboardComponent {
         }
       ],
       chart: {
-        redrawOnParentResize:true,
+        redrawOnParentResize: true,
         type: "bar",
         toolbar: { show: false },
         foreColor: '#657a8e',
@@ -319,16 +321,16 @@ export class DummyDashboardComponent {
   ngOnInit(): void {
     this.listOfData = new Array(100).fill(0).map((_, index) => ({
       id: index,
-      id_code:new Date().getMilliseconds().toString(),
-      created_date:new Date().toLocaleDateString(),
+      id_code: new Date().getMilliseconds().toString(),
+      created_date: new Date().toLocaleDateString(),
       name: `Edward King ${index}`,
       age: 32,
       address: '',
-      type:index % 2 === 0 ? 'FUP+ECG' : 'FUP',
-      action:'',
-      disabled:false,
-      time:new Date().toLocaleTimeString(),
-      patient_status:index % 2 === 0 ? 'C' : 'P',
+      type: index % 2 === 0 ? 'FUP+ECG' : 'FUP',
+      action: '',
+      disabled: false,
+      time: new Date().toLocaleTimeString(),
+      patient_status: index % 2 === 0 ? 'C' : 'P',
     }));
   }
 }

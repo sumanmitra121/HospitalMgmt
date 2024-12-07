@@ -9,7 +9,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"LabMgmt.png"
             },
             {
                 "id":2,
@@ -17,7 +18,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"PatientMgmt.jpg"
             },
             {
                 "id":3,
@@ -25,7 +27,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"PharmacyMgmt.jpg"
             },
             {
                 "id":4,
@@ -33,7 +36,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"OutPatientMgmt.jpg"
             },
             {
                 "id":5,
@@ -41,7 +45,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"AppointmentMgmt.jpg"
             },
             {
                 "id":6,
@@ -49,7 +54,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"InventoryMgmt.jpg"
             },
             {
                 "id":7,
@@ -57,7 +63,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"StaffMgmt.jpg"
             },
             {
                 "id":8,
@@ -65,7 +72,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"BillingMgmt.jpg"
             },
             {
                 "id":9,
@@ -73,7 +81,8 @@
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"FacilityMgmt.jpg"
             }
         ]
     },
@@ -82,20 +91,22 @@
         "moduleHeadName":"Registration",
         "modules":[
             {
-                "id":1,
+                "id":10,
                 "moduleName":"Inpatient Registration",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"InpatientRegistration.jpg"
             },
             {
-                "id":2,
+                "id":11,
                 "moduleName":"Registration",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Registration.jpg"
             }
         ]
     },
@@ -104,100 +115,112 @@
         "moduleHeadName":"Others",
         "modules":[
             {
-                "id":1,
+                "id":12,
                 "moduleName":"Configuration",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Configuration.jpg"
             },
             {
-                "id":2,
+                "id":13,
                 "moduleName":"Billing",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Billing.jpg"
             },
             {
-                "id":3,
+                "id":14,
                 "moduleName":"Digital Medical Records",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"DigitalMedicalRecords.jpg"
             },
             {
-                "id":4,
+                "id":15,
                 "moduleName":"EMR",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"EMR.jpg"
             },
             {
-                "id":5,
+                "id":16,
                 "moduleName":"Pharmacy",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Pharmacy.jpg"
             },
             {
-                "id":6,
+                "id":17,
                 "moduleName":"Appointment",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"AppointmentMgmt.jpg"
             },
             {
-                "id":7,
+                "id":18,
                 "moduleName":"Medical data",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"MedicalData.jpg"
             },
             {
-                "id":8,
+                "id":19,
                 "moduleName":"Patient Communication",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"LabMgmt.png"
             },
             {
-                "id":9,
+                "id":20,
                 "moduleName":"Vaccination module",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Vaccine.jpg"
             },
             {
-                "id":10,
+                "id":21,
                 "moduleName":"Health Care",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"LabMgmt.png"
             },
             {
-                "id":11,
+                "id":22,
                 "moduleName":"Insurance",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"Insurance.jpg"
             },
             {
-                "id":12,
+                "id":23,
                 "moduleName":"Labrotary Information System",
                 "modulDescriptions":"Because it's about motivating the doers. Because I'm here to follow my dreams and inspire others.",
                 "url":"",
                 "Icon":"",
-                "routeName":"/main"
+                "routeName":"/main",
+                "image":"LIMS.jpg"
             }
         ]
     }

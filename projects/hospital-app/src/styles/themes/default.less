@@ -8,6 +8,9 @@
 // @component-background: #21aea8;
 @label-color:#1d1d1df5;
 @modal-heading-color:#1d1d1df5;
+@menu-highlight-color: @white;
+@menu-item-active-bg:@primary-color;
+
 @font-face {
     font-family: 'Bold';
     src: url("../../../public/fonts/Nunito-Bold.ttf") format("truetype");
@@ -97,4 +100,12 @@
 }
 .ant-table-thead > tr > th{
     background-color: transparent!important;
+}
+
+.ant-menu-item a:hover{
+    color:@primary-color!important;
+}
+.ant-menu-item-selected a, 
+.ant-menu-item-selected a:hover{
+    color:@white!important;
 }
