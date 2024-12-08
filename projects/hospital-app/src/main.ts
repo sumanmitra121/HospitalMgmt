@@ -1,11 +1,19 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
-import {
-  register as registerSwiperElements
-} from 'swiper/element/bundle';
+// import { loadRemoteEntry } from '@angular-architects/module-federation';
+// Promise.all([
+// 	loadRemoteEntry({
+// 	  type: 'module',
+// 	  remoteEntry: 'http://localhost:4300/remoteEntry.js',
+// 	}),
+//   ]).catch((err) => console.error('Error loading remote entries', err))
+//   .then(() => import('./bootstrap'))
+//   .catch((err) => console.error(err));  
 
-registerSwiperElements();
+  
+import('./bootstrap')
+	.catch(err => console.error(err));
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// import { loadManifest } from '@angular-architects/module-federation';
+// loadManifest('json/mf.manifest.json')
+// .catch((err) => console.error('Error loading remote entries', err))
+// .then(() => import('./bootstrap'))
+// .catch((err) => console.error(err));

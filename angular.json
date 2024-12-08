@@ -1,291 +1,405 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "hospital-app": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "less"
-        }
-      },
-      "root": "projects/hospital-app",
-      "sourceRoot": "projects/hospital-app/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:application",
-          "options": {
-            "outputPath": "dist/hospital-app",
-            "index": "projects/hospital-app/src/index.html",
-            "browser": "projects/hospital-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/hospital-app/tsconfig.app.json",
-            "inlineStyleLanguage": "less",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/hospital-app/public"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
-            ],
-            "styles": [
-              "projects/hospital-app/src/styles.less",
-              {
-                "input": "projects/hospital-app/src/styles/default.less",
-                "bundleName": "default",
-                "inject": false
-              },
-              {
-                "input": "projects/hospital-app/src/styles/dark.less",
-                "bundleName": "dark",
-                "inject": false
-              }
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["projects/hospital-app/src/styles/themes"]
-            },
-            "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
-            ],
-            "server": "projects/hospital-app/src/main.server.ts",
-            "ssr": false,
-            "prerender": false 
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "hospital-app:build:production"
-            },
-            "development": {
-              "buildTarget": "hospital-app:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/hospital-app/tsconfig.spec.json",
-            "inlineStyleLanguage": "less",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/hospital-app/public"
-              }
-            ],
-            "styles": [
-              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "projects/hospital-app/src/styles.less"
-            ],
-            "scripts": []
-          }
-        }
-      }
-    },
-    "NgTextField": {
-      "projectType": "library",
-      "root": "projects/ng-text-field",
-      "sourceRoot": "projects/ng-text-field/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-text-field/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-text-field/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-text-field/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ng-text-field/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "NgCheckBox": {
-      "projectType": "library",
-      "root": "projects/ng-check-box",
-      "sourceRoot": "projects/ng-check-box/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-check-box/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-check-box/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-check-box/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ng-check-box/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "NgButton": {
-      "projectType": "library",
-      "root": "projects/ng-button",
-      "sourceRoot": "projects/ng-button/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-button/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-button/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-button/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ng-button/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "NgAvatar": {
-      "projectType": "library",
-      "root": "projects/ng-avatar",
-      "sourceRoot": "projects/ng-avatar/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-avatar/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-avatar/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-avatar/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ng-avatar/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    },
-    "ngChart": {
-      "projectType": "library",
-      "root": "projects/ng-chart",
-      "sourceRoot": "projects/ng-chart/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-chart/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-chart/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-chart/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/ng-chart/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        }
-      }
-    }
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"hospital-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "less"
+				}
+			},
+			"root": "projects/hospital-app",
+			"sourceRoot": "projects/hospital-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/hospital-app",
+						"index": "projects/hospital-app/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/hospital-app/tsconfig.app.json",
+						"inlineStyleLanguage": "less",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/hospital-app/public",
+								"output": "."
+							},
+							{
+								"glob": "**/*",
+								"input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+								"output": "/assets/"
+							}
+						],
+						"styles": [
+							"projects/hospital-app/src/styles.less",
+							{
+								"input": "projects/hospital-app/src/styles/default.less",
+								"bundleName": "default",
+								"inject": false
+							},
+							{
+								"input": "projects/hospital-app/src/styles/dark.less",
+								"bundleName": "dark",
+								"inject": false
+							}
+						],
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/hospital-app/src/styles/themes"
+							]
+						},
+						"scripts": [
+							"node_modules/apexcharts/dist/apexcharts.min.js"
+						],
+						"main": "projects/hospital-app/src/main.ts",
+						"extraWebpackConfig": "projects/hospital-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kB",
+									"maximumError": "4kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/hospital-app/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "hospital-app:build:production",
+							"extraWebpackConfig": "projects/hospital-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "hospital-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/hospital-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/hospital-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "less",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/hospital-app/public"
+							}
+						],
+						"styles": [
+							"./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+							"projects/hospital-app/src/styles.less"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"NgTextField": {
+			"projectType": "library",
+			"root": "projects/ng-text-field",
+			"sourceRoot": "projects/ng-text-field/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/ng-text-field/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ng-text-field/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-text-field/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/ng-text-field/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"NgCheckBox": {
+			"projectType": "library",
+			"root": "projects/ng-check-box",
+			"sourceRoot": "projects/ng-check-box/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/ng-check-box/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ng-check-box/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-check-box/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/ng-check-box/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"NgButton": {
+			"projectType": "library",
+			"root": "projects/ng-button",
+			"sourceRoot": "projects/ng-button/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/ng-button/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ng-button/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-button/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/ng-button/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"NgAvatar": {
+			"projectType": "library",
+			"root": "projects/ng-avatar",
+			"sourceRoot": "projects/ng-avatar/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/ng-avatar/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ng-avatar/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-avatar/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/ng-avatar/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"ngChart": {
+			"projectType": "library",
+			"root": "projects/ng-chart",
+			"sourceRoot": "projects/ng-chart/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/ng-chart/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ng-chart/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-chart/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/ng-chart/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		},
+		"libraryMgMt": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "less"
+				}
+			},
+			"root": "projects/library-mg-mt",
+			"sourceRoot": "projects/library-mg-mt/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/library-mg-mt",
+						"index": "projects/library-mg-mt/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/library-mg-mt/tsconfig.app.json",
+						"inlineStyleLanguage": "less",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/library-mg-mt/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/library-mg-mt/src/styles.less"
+						],
+						"scripts": [],
+						"main": "projects/library-mg-mt/src/main.ts",
+						"extraWebpackConfig": "projects/library-mg-mt/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kB",
+									"maximumError": "4kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/library-mg-mt/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "libraryMgMt:build:production",
+							"extraWebpackConfig": "projects/library-mg-mt/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "libraryMgMt:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4300,
+						"publicHost": "http://localhost:4300",
+						"extraWebpackConfig": "projects/library-mg-mt/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/library-mg-mt/tsconfig.spec.json",
+						"inlineStyleLanguage": "less",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/library-mg-mt/public"
+							}
+						],
+						"styles": [
+							"projects/library-mg-mt/src/styles.less"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	}
 }
